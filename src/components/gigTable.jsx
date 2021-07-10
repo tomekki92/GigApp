@@ -32,6 +32,7 @@ class GigTable extends Component {
             <th></th>
           </tr>
         </thead>
+
         <tbody>
           {this.state.gigs.map((gig) => (
             <tr>
