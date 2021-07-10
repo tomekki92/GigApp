@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getGigs } from "../services/fakeData";
+import { Link } from "react-router-dom";
 import "font-awesome/css/font-awesome.css";
 
 class GigTable extends Component {
@@ -19,9 +20,12 @@ class GigTable extends Component {
               Gig Count: {gigCount}
             </span>
           </h6>
-          <button className="btn btn-primary btn-sm position-absolute top-0 end-0 my-1">
+          <Link
+            to="/gigs/new"
+            className="btn btn-primary btn-sm position-absolute top-0 end-0 my-1"
+          >
             + New Gig
-          </button>
+          </Link>
           <tr>
             <th>Name</th>
             <th>Date</th>
