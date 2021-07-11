@@ -7,10 +7,15 @@ import { paginate } from "../utils/paginate";
 
 class Gigs extends Component {
   state = {
-    gigs: getGigs(),
+    gigs: {},
     currentPage: 1,
     pageSize: 5, //number of gigs per page
   };
+
+  componentDidMount() {
+    const gigs = getGigs();
+    this.setState({ gigs });
+  }
 
   handlePageChange = (page) => {
     this.setState({ currentPage: page });

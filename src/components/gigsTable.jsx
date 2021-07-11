@@ -19,20 +19,20 @@ const GigsTable = ({ gigs }) => {
       <tbody>
         {gigs.map((gig) => (
           <tr key={gig._id}>
-            <td>
-              <Link to={`/gigs/${gig._id}`}>{gig.name}</Link>
-            </td>
+            <td>{gig.name}</td>
             <td>{gig.date}</td>
             <td>{gig.time}</td>
             <td>{gig.venue}</td>
             <td>{gig.country}</td>
             <td style={{ color: gig.status.color }}>{gig.status.title}</td>
             <td>
-              <i
-                className="fa fa-pencil-square-o"
-                aria-hidden="true"
-                style={{ cursor: "pointer" }}
-              />
+              <Link to={`/gigs/${gig._id}`}>
+                <i
+                  className="fa fa-pencil-square-o"
+                  aria-hidden="true"
+                  style={{ cursor: "pointer" }}
+                />
+              </Link>
             </td>
           </tr>
         ))}

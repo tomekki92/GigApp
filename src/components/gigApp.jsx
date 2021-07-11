@@ -3,8 +3,6 @@ import GigHeader from "./gigHeader";
 import Gigs from "./gigs";
 
 class Gig extends Component {
-  state = {};
-
   render() {
     return (
       <React.Fragment>
