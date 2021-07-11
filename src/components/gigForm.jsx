@@ -1,10 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class GigForm extends Component {
-  state = {};
-  render() {
-    return <h1>New Gig</h1>;
-  }
-}
+const GigForm = () => {
+  return <h1>Gig Form</h1>;
+};
 
 export default GigForm;

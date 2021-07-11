@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GigHeader from "./gigHeader";
-import GigTable from "./gigTable";
+import Gigs from "./gigs";
 
 class Gig extends Component {
   state = {};
@@ -8,8 +8,14 @@ class Gig extends Component {
   render() {
     return (
       <React.Fragment>
-        <GigHeader />
-        <GigTable />
+        <div className="container">
+          <div className="row">
+            <GigHeader />
+          </div>
+          <div className="row">
+            <Gigs />
+          </div>
+        </div>
       </React.Fragment>
     );
   }

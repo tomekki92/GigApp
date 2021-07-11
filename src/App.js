@@ -10,7 +10,8 @@ class App extends Component {
     return (
       <main className="container">
         <Switch>
-          <Route path="/gigs/new" component={GigForm}></Route>
+          {/* <Route path="/gigs/new" component={GigForm}></Route> */}
+          <Route path="/gigs/:id" component={GigForm}></Route>
           <Route path="/gigs" component={Gig}></Route>
           <Route path="/not-found" component={NotFound}></Route>
           <Redirect from="/" exact to="/gigs" />
