@@ -48,7 +48,7 @@ const gigs = [
     venue: "Zhiguli",
     country: "Kaliningrad, RUS",
     status: {
-      _id: "5b21ca3eeb7f6fbccd471829",
+      _id: "5b21ca3eeb7f6fbccd471839",
       title: "Happened",
       color: "gray",
     },
