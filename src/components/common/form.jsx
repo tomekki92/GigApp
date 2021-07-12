@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
@@ -37,12 +38,12 @@ class Form extends Component {
   };
 
   handleChange = ({ currentTarget: input }) => {
-    const errors = { ...this.state.errors };
+    const errors = this.state.errors;
     const errorMessage = this.validateProperty(input);
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
 
-    const data = { ...this.state.data };
+    const data = this.state.data;
     data[input.name] = input.value;
 
     this.setState({ data, errors });
@@ -56,7 +57,15 @@ class Form extends Component {
     );
   }
 
-  renderInput(name, label, type = "text") {
+  renderCancelButton() {
+    return (
+      <Link to="/gigs" className="btn btn-danger m-3">
+        Cancel
+      </Link>
+    );
+  }
+
+  renderInput(name, label, placeholder, type = "text") {
     const { data, errors } = this.state;
     return (
       <Input
@@ -66,6 +75,7 @@ class Form extends Component {
         label={label}
         onChange={this.handleChange}
         error={errors[name]}
+        placeholder={placeholder}
       />
     );
   }

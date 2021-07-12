@@ -1,9 +1,7 @@
 import React from "react";
 import _ from "lodash";
 
-const Pagination = (props) => {
-  const { itemsCount, pageSize, currentPage, onPageChange } = props;
-
+const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   const pagesCount = Math.ceil(itemsCount / pageSize);
 
   if (pagesCount === 1) return null;

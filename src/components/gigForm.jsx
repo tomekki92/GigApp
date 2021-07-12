@@ -64,13 +64,14 @@ class GigForm extends Form {
       <div>
         <h1>Gig Form</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("name", "Name")}
-          {this.renderInput("date", "Date")}
-          {this.renderInput("time", "Time")}
+          {this.renderInput("name", "Name", "gig00")}
+          {this.renderInput("date", "Date", "YYYY-MM-DD")}
+          {this.renderInput("time", "Time", "00:00")}
           {this.renderInput("venue", "Venue")}
-          {this.renderInput("country", "Country")}
+          {this.renderInput("country", "Country", "City, Country")}
           {this.renderSelect("statusId", "Status", this.state.status)}
           {this.renderButton("Save")}
+          {this.renderCancelButton()}
         </form>
       </div>
     );

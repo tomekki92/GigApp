@@ -8,7 +8,7 @@ import GigForm from "./components/gigForm";
 class App extends Component {
   render() {
     return (
-      <main className="container">
+      <div className="container">
         <Switch>
           {/* <Route path="/gigs/new" component={GigForm}></Route> */}
           <Route path="/gigs/:id" component={GigForm}></Route>
@@ -17,7 +17,7 @@ class App extends Component {
           <Redirect from="/" exact to="/gigs" />
           <Redirect to="/not-found" />
         </Switch>
-      </main>
+      </div>
     );
   }
 }
