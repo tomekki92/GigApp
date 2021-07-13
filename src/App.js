@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import "./App.css";
-import Gig from "./components/gigApp";
-import NotFound from "./components/notFound";
-import BigForm from "./components/bigForm";
+import Gig from "./components/GigApp";
+import NotFound from "./components/NotFound";
+import BigForm from "./components/BigForm";
 
 class App extends Component {
   render() {

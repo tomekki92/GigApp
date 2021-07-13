@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Input from "./common/input";
-import Select from "./common/select";
+import Input from "./common/Input";
+import Select from "./common/Select";
 import { Link } from "react-router-dom";
 import { getGig, saveGig } from "../services/fakeData";
 import { getStatus } from "../services/fakeStatus";

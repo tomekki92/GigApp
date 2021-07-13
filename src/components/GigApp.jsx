@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import GigHeader from "./gigHeader";
-import Gigs from "./gigs";
+import GigHeader from "./GigHeader";
+import Gigs from "./Gigs";
 
 class Gig extends Component {
   render() {

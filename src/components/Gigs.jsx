@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Pagination from "./common/pagination";
-import GigsTable from "./gigsTable";
+import Pagination from "./common/Pagination";
+import GigsTable from "./GigsTable";
 import { getGigs } from "../services/fakeData";
 import { Link } from "react-router-dom";
 import { paginate } from "../utils/paginate";
