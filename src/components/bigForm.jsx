@@ -4,6 +4,7 @@ import Select from "./common/select";
 import { Link } from "react-router-dom";
 import { getGig, saveGig } from "../services/fakeData";
 import { getStatus } from "../services/fakeStatus";
+import { inputs } from "./common/contstants";
 
 class BigForm extends Component {
   state = {
@@ -46,10 +47,18 @@ class BigForm extends Component {
 
   validateForm = () => {
     const errors = {};
-    const { name, date, time, venue, country } = this.state.data;
+    const { name, venue, date, time, country, statusId } = this.state.data;
+    const message = "Please fill in the input field above";
 
-    if (name.trim() === "")
-      errors.name = "Please fill in the input field above";
+    if (
+      name.trim() === "" ||
+      venue.trim() === "" ||
+      country.trim() === "" ||
+      date === "" ||
+      time === "" ||
+      statusId === ""
+    )
+      errors.name = message;
     return Object.keys(errors).length === 0 ? null : errors;
   };
 
@@ -70,15 +79,10 @@ class BigForm extends Component {
   };
 
   validateProperty = ({ name, value }) => {
-    const charLength = [4, 10, 5];
-    const titles = ["name", "date", "time"];
-    if (name === titles[0]) {
-      if (value.length > charLength[0])
-        return `Name should be less than ${charLength[0]} characters long.`;
-    }
-    if (name === titles[1]) {
-      if (value.length > charLength[1] || value.length < 10)
-        return `Date should be 10 characters long.`;
+    const charLength = 4;
+    if (name) {
+      if (value.length > charLength)
+        return `Name should be less than ${charLength} characters long.`;
     }
   };
 
@@ -93,37 +97,6 @@ class BigForm extends Component {
 
     this.setState({ data, errors });
   };
-
-  renderButton(label) {
-    return (
-      <button disabled={this.validateForm()} className="btn btn-primary my-4">
-        {label}
-      </button>
-    );
-  }
-
-  renderCancelButton() {
-    return (
-      <Link to="/gigs" className="btn btn-danger m-3">
-        Cancel
-      </Link>
-    );
-  }
-
-  renderInput(name, label, placeholder, type = "text") {
-    const { data, errors } = this.state;
-    return (
-      <Input
-        type={type}
-        name={name}
-        value={data[name]}
-        label={label}
-        onChange={this.handleChange}
-        error={errors[name]}
-        placeholder={placeholder}
-      />
-    );
-  }
 
   renderSelect(name, label, options) {
     const { data, errors } = this.state;
@@ -145,14 +118,31 @@ class BigForm extends Component {
       <div>
         <h1>Gig Form</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("name", "Name", "gig00")}
-          {this.renderInput("date", "Date", "YYYY-MM-DD")}
-          {this.renderInput("time", "Time", "00:00 GMT+3")}
-          {this.renderInput("venue", "Venue")}
-          {this.renderInput("country", "Country", "City, Country")}
+          {inputs.map((inputProps) => (
+            <Input
+              value={this.state.data[inputProps.name]}
+              onChange={this.handleChange}
+              error={
+                this.state.errors[inputProps.name]
+                //   ? invalidInputMessage
+                //   : undefined
+              }
+              {...inputProps}
+            />
+          ))}
+
           {this.renderSelect("statusId", "Status", this.state.status)}
-          {this.renderButton("Save")}
-          {this.renderCancelButton()}
+
+          <button
+            disabled={this.validateForm()}
+            className="btn btn-primary my-4"
+          >
+            Save
+          </button>
+
+          <Link to="/gigs" className="btn btn-danger m-3">
+            Cancel
+          </Link>
         </form>
       </div>
     );
