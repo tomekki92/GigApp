@@ -80,7 +80,7 @@ class BigForm extends Component {
 
   validateProperty = ({ name, value }) => {
     const charLength = 4;
-    if (name) {
+    if (name === "name") {
       if (value.length > charLength)
         return `Name should be less than ${charLength} characters long.`;
     }

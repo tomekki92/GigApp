@@ -56,7 +56,7 @@ const gigs = [
 ];
 
 export function getGigs() {
-  return gigs;
+  return Promise.resolve(gigs);
 }
 
 export function getGig(id) {

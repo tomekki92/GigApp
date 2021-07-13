@@ -13,8 +13,7 @@ class Gigs extends Component {
   };
 
   componentDidMount() {
-    const gigs = getGigs();
-    this.setState({ gigs });
+    getGigs().then((gigs) => this.setState({ gigs }));
   }
 
   handlePageChange = (page) => {
