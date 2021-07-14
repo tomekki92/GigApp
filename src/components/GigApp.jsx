@@ -1,22 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import GigHeader from "./GigHeader";
 import Gigs from "./Gigs";
 
-class Gig extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div className="container">
-          <div className="row">
-            <GigHeader />
-          </div>
-          <div className="row">
-            <Gigs />
-          </div>
+const Gig = () => {
+  return (
+    <React.Fragment>
+      <div className="container">
+        <div className="row">
+          <GigHeader />
         </div>
-      </React.Fragment>
-    );
-  }
-}
+        <div className="row">
+          <Gigs />
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
 
 export default Gig;

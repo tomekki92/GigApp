@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const GigsTable = ({ gigs }) => {
+const GigsTable = ({ gigs, onDelete }) => {
   return (
     <table className="table">
       <thead>
@@ -12,6 +12,7 @@ const GigsTable = ({ gigs }) => {
           <th>Venue</th>
           <th>Country</th>
           <th>Status</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -33,6 +34,14 @@ const GigsTable = ({ gigs }) => {
                   style={{ cursor: "pointer" }}
                 />
               </Link>
+            </td>
+            <td>
+              <button
+                onClick={() => onDelete(gig)}
+                className="btn btn-danger btn-sm"
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))}

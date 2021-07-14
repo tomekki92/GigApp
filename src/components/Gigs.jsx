@@ -20,6 +20,11 @@ class Gigs extends Component {
     this.setState({ currentPage: page });
   };
 
+  handleDelete = (gig) => {
+    const gigs = this.state.gigs.filter((g) => g._id !== gig._id);
+    this.setState({ gigs });
+  };
+
   render() {
     const { length: count } = this.state.gigs;
     const { currentPage, pageSize, gigs: allGigs } = this.state;
@@ -40,7 +45,7 @@ class Gigs extends Component {
             </span>
           </Link>
         </div>
-        <GigsTable gigs={gigs} />
+        <GigsTable gigs={gigs} onDelete={this.handleDelete} />
         <Pagination
           itemsCount={count}
           pageSize={pageSize}
