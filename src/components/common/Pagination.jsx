@@ -6,6 +6,7 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
 
   if (pagesCount === 1) return null;
 
+  //creates array for number of pages
   const pages = _.range(1, pagesCount + 1);
 
   return (
