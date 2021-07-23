@@ -56,10 +56,7 @@ class Gigs extends Component {
     if (currentGig._id) {
       data.doc(currentGig._id).set(currentGig);
     } else {
-      currentGig._id = `${currentGig.name.replace(
-        " ",
-        "-"
-      )}-${Date.now().toString()}`;
+      currentGig._id = Date.now().toString();
       data.doc(currentGig._id).set(currentGig);
       gigs.push(currentGig);
     }
