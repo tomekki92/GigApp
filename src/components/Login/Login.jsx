@@ -4,6 +4,7 @@ import firebase from "../../firebase";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Redirect, withRouter } from "react-router-dom";
 import { GIG_APP_ROUTE } from "../common/contstants";
+import styles from "./Login.module.css";
 
 const Login = ({ history }) => {
   const handleGoogleLogin = React.useCallback(
@@ -43,9 +44,11 @@ const Login = ({ history }) => {
   }
 
   return (
-    <Button variant="danger" onClick={handleGoogleLogin}>
-      <i className="fa fa-google"></i> Login with google
-    </Button>
+    <div className={styles.container}>
+      <Button className="" variant="danger" onClick={handleGoogleLogin}>
+        <i className="fa fa-google"></i> Login with google
+      </Button>
+    </div>
   );
 };
 

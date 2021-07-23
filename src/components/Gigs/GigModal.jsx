@@ -14,6 +14,7 @@ class GigModal extends Component {
     const currentGig = this.state.currentGig;
     currentGig[e.target.name] = e.target.value;
     this.setState({ currentGig: { ...this.props.gig, ...currentGig } });
+    console.log(currentGig);
   };
 
   render() {
@@ -75,7 +76,8 @@ class GigModal extends Component {
                 label="Status"
                 onChange={this.handleInputChange}
                 options={gigStatuses}
-                value={gig && gig.status}
+                defaultValue={(gig && gig.status) || ""}
+                value={currentGig.status}
               />
             </form>
           </div>
@@ -92,9 +94,9 @@ class GigModal extends Component {
           <Button
             disabled={!(name && date && time && venue && country && status)}
             onClick={() => {
-              onClose();
               onGigUpdate(this.state.currentGig);
               this.setState({ currentGig: {} });
+              onClose();
             }}
           >
             Save
