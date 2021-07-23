@@ -9,8 +9,7 @@ const gigs = [
     venue: "Loftas",
     country: "Vilnius, LTU",
     status: {
-      _id: "5b21ca3eeb7f6fbccd471818",
-      title: "Approved",
+      label: "Approved",
       color: "green",
     },
   },
@@ -22,8 +21,7 @@ const gigs = [
     venue: "Arena BBs",
     country: "Plunge, LTU",
     status: {
-      _id: "5b21ca3eeb7f6fbccd471814",
-      title: "Cancelled",
+      label: "Cancelled",
       color: "red",
     },
   },
@@ -35,8 +33,7 @@ const gigs = [
     venue: "Lemmy",
     country: "Kaunas, LTU",
     status: {
-      _id: "5b21ca3eeb7f6fbccd471820",
-      title: "Pending",
+      label: "Pending",
       color: "black",
     },
   },
@@ -48,8 +45,7 @@ const gigs = [
     venue: "Zhiguli",
     country: "Kaliningrad, RUS",
     status: {
-      _id: "5b21ca3eeb7f6fbccd471839",
-      title: "Happened",
+      label: "Happened",
       color: "gray",
     },
   },
@@ -59,6 +55,7 @@ export function getGigs() {
   return Promise.resolve(gigs);
 }
 
+//returns value of first element
 export function getGig(id) {
   return gigs.find((g) => g._id === id);
 }

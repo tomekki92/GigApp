@@ -1,0 +1,22 @@
+.desktop {
+  display: none;
+}
+.mobile {
+}
+.overlay {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 2px black;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .desktop {
+    display: table-cell;
+  }
+  .mobile {
+    display: none;
+  }
+}
