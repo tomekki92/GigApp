@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import { Button, Overlay } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import GigModal from "./GigModal";
 import styles from "./Gigs.module.css";
 
 class GigsTable extends Component {
-  constructor() {
-    super();
-    this.ref = React.createRef();
-  }
   state = {
     showModal: false,
     gig: {},
-    showOverlay: false,
   };
 
   toggleShowModal = (id) => {
@@ -26,16 +21,32 @@ class GigsTable extends Component {
     switch (status) {
       case "Approved":
         return (
-          <i className="fa fa-check-circle" style={{ color: "green" }}></i>
+          <i
+            className="fa fa-check"
+            style={{ color: "green", fontSize: "1.3rem" }}
+          ></i>
         );
       case "Pending":
         return (
-          <i className="fa fa-question-circle" style={{ color: "orange" }}></i>
+          <i
+            className="fa fa-question"
+            style={{ color: "darkorange", fontSize: "1.3rem" }}
+          ></i>
         );
       case "Cancelled":
-        return <i className="fa fa-times-circle" style={{ color: "red" }}></i>;
+        return (
+          <i
+            className="fa fa-times"
+            style={{ color: "red", fontSize: "1.3rem" }}
+          ></i>
+        );
       case "Happened":
-        return <i className="fa fa-check-circle" style={{ color: "gray" }}></i>;
+        return (
+          <i
+            className="fa fa-check-circle"
+            style={{ color: "black", fontSize: "1.3rem" }}
+          ></i>
+        );
       default:
         return;
     }
@@ -45,12 +56,13 @@ class GigsTable extends Component {
     const { gigs, onDelete, onGigUpdate } = this.props;
     const { showModal } = this.state;
 
-    if (gigs.length === 0) return <p>There are no gigs. :(</p>;
+    if (gigs.length === 0)
+      return <p className={styles.nogigs}>There are no gigs. :(</p>;
 
     return (
       <React.Fragment>
         <table className="table">
-          <thead>
+          <thead className={styles.font}>
             <tr>
               <th>Name</th>
               <th>Date</th>
@@ -58,13 +70,12 @@ class GigsTable extends Component {
               <th className={styles.desktop}>Venue</th>
               <th>Country</th>
               <th>Status</th>
-              {/* <th></th> */}
               <th></th>
               <th></th>
             </tr>
           </thead>
 
-          <tbody>
+          <tbody className={styles.font}>
             {gigs.map((gig) => (
               <tr key={gig._id}>
                 <td>{gig.name}</td>
@@ -73,64 +84,35 @@ class GigsTable extends Component {
                 <td className={styles.desktop}>{gig.venue}</td>
                 <td>{gig.country}</td>
                 <td>{this.getStatusIcon(gig.status)}</td>
-                {/* <td>
-                  <i
-                    disabled={true}
-                    className="fa fa-pencil-square-o"
-                    aria-hidden="true"
-                    style={{ cursor: "pointer" }}
-                  />
-                </td> */}
                 <td>
-                  <div>
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      ref={this.ref}
-                      onClick={() =>
-                        this.setState({ showOverlay: !this.state.showOverlay })
-                      }
-                    >
-                      <i className="fa fa-cog" aria-hidden="true"></i>
-                    </Button>
-                    <Overlay
-                      target={this.ref.current}
-                      show={this.state.showOverlay}
-                      placement="top"
-                    >
-                      {({
-                        placement,
-                        arrowProps,
-                        show: _show,
-                        popper,
-                        ...props
-                      }) => (
-                        <div
-                          className={styles.overlay}
-                          {...props}
-                          style={{
-                            borderRadius: 3,
-                            ...props.style,
-                          }}
-                        >
-                          <Button
-                            variant="outline-primary"
-                            className="m-1"
-                            onClick={() => this.toggleShowModal(gig._id)}
-                          >
-                            Edit
-                          </Button>
-                          <Button
-                            onClick={() => onDelete(gig)}
-                            variant="outline-danger"
-                            className="m-1"
-                          >
-                            Delete
-                          </Button>
-                        </div>
-                      )}
-                    </Overlay>
-                  </div>
+                  <Button
+                    variant="outline-primary"
+                    size="sm"
+                    className={styles.button}
+                    onClick={() => this.toggleShowModal(gig._id)}
+                  >
+                    <i
+                      className="fa fa-cog"
+                      aria-hidden="true"
+                      style={{
+                        fontSize: "1.2rem",
+                      }}
+                    ></i>
+                  </Button>
+                </td>
+                <td>
+                  <Button
+                    onClick={() => onDelete(gig)}
+                    size="sm"
+                    variant="outline-danger"
+                    className={styles.button}
+                  >
+                    <i
+                      className="fa fa-trash"
+                      aria-hidden="true"
+                      style={{ fontSize: "1.2rem" }}
+                    ></i>
+                  </Button>
                 </td>
               </tr>
             ))}

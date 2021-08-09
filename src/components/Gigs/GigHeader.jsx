@@ -1,24 +1,28 @@
 import React from "react";
 import { Container, Navbar, Button } from "react-bootstrap";
 import firebase from "../../firebase";
+import styles from "./Gigs.module.css";
 
 const GigHeader = ({ history, gigsCount, onCreateGig }) => {
   return (
-    <Navbar bg="light">
+    <Navbar variant="light" style={{ backgroundColor: "whitesmoke" }}>
       <Container>
-        <Navbar.Brand>Gigs ({gigsCount})</Navbar.Brand>
+        <Navbar.Brand className={styles.navbar}>
+          Gigs ({gigsCount})
+        </Navbar.Brand>
         <div>
           <Button onClick={onCreateGig} className="m-2">
-            + New Gig
+            <span className={styles.font}>+ New Gig</span>
           </Button>
           <Button
+            className=""
             variant="outline-danger"
             onClick={() => {
               firebase.auth().signOut();
               history.replace("/login");
             }}
           >
-            Logout
+            <span className={styles.font}>Logout</span>
           </Button>
         </div>
       </Container>
