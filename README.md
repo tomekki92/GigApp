@@ -3,6 +3,8 @@
 This is an app I've built for managing gigs/live events. 
 Built by using ReactJS, React-Bootstrap, Firebase for backend and React-Router for routing. Used Hooks and Context for managing state (for authorization and login).
 
+Live link - gig-app-1e47f.web.app/login
+
 ## Available Scripts
 
 In the project directory, you can run:
