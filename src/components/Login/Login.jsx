@@ -44,10 +44,17 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div className={styles.container}>
-      <Button className="" variant="danger" onClick={handleGoogleLogin}>
-        <i className="fa fa-google"></i> Login with google
-      </Button>
+    <div className={styles.wrap}>
+      <div className={styles.container}>
+        <h1 className="my-5">Gig App</h1>
+        <p className="mt-5 pt-4 mb-0">
+          Gig management app for entertainment acts
+        </p>
+        <Button variant="danger" className="my-5" onClick={handleGoogleLogin}>
+          <i className="fa fa-google"></i>{" "}
+          <span className={styles.google}>Login with Google</span>
+        </Button>
+      </div>
     </div>
   );
 };

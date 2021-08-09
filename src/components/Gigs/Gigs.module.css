@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;400&display=swap");
+
 .desktop {
   display: none;
 }
-.mobile {
-}
+
 .overlay {
   display: flex;
   flex-direction: column;
@@ -12,11 +14,47 @@
   margin-bottom: 5px;
 }
 
+.navbar {
+  font-family: "Cinzel Decorative", cursive;
+  font-weight: 00;
+  font-size: 1.6rem;
+}
+
+.button {
+  display: flex;
+}
+
+.font {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.nogigs {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: black;
+  margin-top: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .desktop {
     display: table-cell;
   }
   .mobile {
     display: none;
+  }
+}
+
+@media screen and (max-width: 634px) {
+  .font {
+    font-family: "Assistant", sans-serif;
+  }
+  .nogigs {
+    font-family: "Assistant", sans-serif;
+    color: black;
+    margin-top: 0.5rem;
+  }
+  .button {
+    display: flex;
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
-
 import Input from "../common/Input";
 import Select from "../common/Select";
 import { gigStatuses } from "../common/contstants";
@@ -14,7 +13,6 @@ class GigModal extends Component {
     const currentGig = this.state.currentGig;
     currentGig[e.target.name] = e.target.value;
     this.setState({ currentGig: { ...this.props.gig, ...currentGig } });
-    console.log(currentGig);
   };
 
   render() {
