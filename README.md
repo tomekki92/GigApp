@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Gig App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an app I've built for managing gigs/live events. 
+Built by using ReactJS, React-Bootstrap, Firebase for backend and React-Router for routing. Used Hooks and Context for managing state (for authorization and login).
 
 ## Available Scripts
 
